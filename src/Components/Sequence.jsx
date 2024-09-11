@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Node from "./Node";
 import { Arrow } from "./Arrow";
 import ZoomButtons from "./ZoomButtons"; 
+import DataOptions from "./DataOptions";
 
 const Sequence = ({ title, nodes }) => {
   const [scale, setScale] = useState(1); 
@@ -17,6 +18,9 @@ const Sequence = ({ title, nodes }) => {
       setScale(scale - 0.1);
     }
   };
+  const handleTogglePath  = () => {
+
+  }
 
   return (
     <div className="p-8 bg-gray-100 min-h-screen flex flex-col items-center">
@@ -35,8 +39,12 @@ const Sequence = ({ title, nodes }) => {
           </div>
         ))}
       </div>
-
+      <div>
       <ZoomButtons onZoomIn={handleZoomIn} onZoomOut={handleZoomOut} />
+        <button o>
+        <DataOptions />
+        </button>
+      </div>
     </div>
   );
 };

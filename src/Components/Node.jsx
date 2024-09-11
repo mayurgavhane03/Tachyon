@@ -25,16 +25,18 @@ const Node = ({details }) => {
 
   return (
     <div
-      className="flex flex-col items-center"
+      className="flex flex-col items-center relative"
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
     >
-      <div className="flex flex-col items-center justify-center h-40 w-40 rounded-full shadow-lg bg-white border-2 border-gray-300">
-        <span className="text-4xl">{getIcon(details.type)}</span>
-        <span className="font-semibold text-center text-lg">{details.name}</span>
+      <div className="flex flex-col items-center justify-center h-32 w-32 rounded-full shadow-lg bg-white border-2 border-gray-300 ">
+        <span className="text-4xl text-blue-500">{getIcon(details.type)}</span>
+        <span className="font-semibold text-center text-sm mt-2">
+          {details.name}
+        </span>
       </div>
       {hover && (
-        <div className="absolute top-0 left-0 mt-12">
+        <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 z-10">
           <Tooltip details={details.details} />
         </div>
       )}

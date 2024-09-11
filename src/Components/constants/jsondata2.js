@@ -132,7 +132,7 @@ export const jsondata2 = [
           "correlation-id": "214365",
           "prev": "9",
           "id": "10"
-        }
+        },
       ]
     }
   ]
