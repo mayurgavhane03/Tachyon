@@ -1,19 +1,16 @@
 import { useState } from "react";
 
-
-const DataOptions = () => {
-  const [selectedOption, setSelectedOption] = useState("Test-data-2");
+const DataOptions = ({ onDataChange }) => {
+  const [selectedOption, setSelectedOption] = useState("Test-data-1");
 
   const handleChange = (e) => {
-    setSelectedOption(e.target.value);
-  };
-
-  const handleGetData = () => {
-    alert(`Selected Option: ${selectedOption}`);
+    const option = e.target.value;
+    setSelectedOption(option);
+    onDataChange(option); // Pass the selected option back to the parent component
   };
 
   return (
-    <div className="   absolute top-50 right-10  items-start p-4 border border-blue-500 rounded-md">
+    <div className="absolute top-50 right-10 items-start p-4 border border-blue-500 rounded-md">
       <label className="flex items-center mb-2">
         <input
           type="radio"
@@ -47,12 +44,6 @@ const DataOptions = () => {
         />
         Custom
       </label>
-      <button
-        className="bg-blue-200 text-blue-900 font-semibold py-2 px-4 rounded hover:bg-blue-300"
-        onClick={handleGetData}
-      >
-        Get Data
-      </button>
     </div>
   );
 };

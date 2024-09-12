@@ -19,3 +19,55 @@ body {
   margin: 0;
   padding: 0;
 }
+
+.App {
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+.diagram-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.node-row {
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.node {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  background-color: #ffcccb; /* default color for nodes */
+  border: 2px solid #000;
+}
+
+.arrow {
+  margin-left: 10px;
+  font-size: 30px;
+}
+
+.node.user {
+  background-color: #a2d2ff;
+}
+
+.node.api {
+  background-color: #ffd700;
+}
+
+.node.function {
+  background-color: #90ee90;
+}
+
+.node.database {
+  background-color: #ff7373;
+}
