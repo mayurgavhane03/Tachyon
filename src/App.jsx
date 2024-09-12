@@ -1,7 +1,7 @@
 import React from "react";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
-import EmployeeFlowDiagram from "./Components/EmployeeFlowDiagram";
-import DiagramRenderer from "./Components/MainComonents/DiagramRenderer";
+ 
+import EmployeeFlowDiagram2 from "./Components/MainComonents/EmployeeFlowDiagram";
  
 const nodes = [
   { type: "user", name: "Desktop Client", next: "2", id: "1" },
@@ -19,8 +19,8 @@ const AppLayout = () => {
   return (
     <div>
       {/* <Sequence /> */}
-    <DiagramRenderer  />
-      <EmployeeFlowDiagram />
+ 
+      <EmployeeFlowDiagram2 />
       <Outlet />
     </div>
   );

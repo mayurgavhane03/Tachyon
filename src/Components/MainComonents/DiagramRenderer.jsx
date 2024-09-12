@@ -3,7 +3,7 @@ import { calculatePositionsAndConnections } from './calculatePositionsAndConnect
 import NodeWrapper from './NodeWrapper';
 import ArrowWrapper from './ArrowWrapper';
 
-const DiagramRenderer = ({ nodes = [] }) => {
+const DiagramRenderer = ({ nodes = [], scale }) => {
   const { nodePositions, connections, diagramDimensions } = useMemo(() => 
     calculatePositionsAndConnections(nodes), [nodes]);
 
@@ -17,7 +17,8 @@ const DiagramRenderer = ({ nodes = [] }) => {
       className="relative"
       style={{
         width: `${diagramDimensions.width}px`,
-        height: `${diagramDimensions.height}px`
+        height: `${diagramDimensions.height}px`,
+         transform: `scale(${scale})`
       }}
     >
       {Object.entries(nodePositions).map(([nodeId, position]) => (
