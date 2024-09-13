@@ -12,7 +12,7 @@ const DiagramRenderer = ({ nodes = [], scale }) => {
   }
 
   // Calculate offset based on scale
-  const offsetX = (scale - 1) * 200; // Adjust multiplier as needed
+  const offsetX = (scale - 1) * 100; // Adjust multiplier as needed
   const offsetY = (scale - 1) * 100; // Adjust multiplier as needed
 
   return (

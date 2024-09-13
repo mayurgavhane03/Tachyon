@@ -11,14 +11,14 @@ const EmployeeFlowDiagram2 = () => {
   const [selectedData, setSelectedData] = useState(jsondata1);
   const [scale, setScale] = useState(1);
   const handleZoomIn = () => {
-    if (scale < 1.5) {
-      setScale(scale + 0.1);
+    if (scale < 1.1) {
+      setScale(scale + 0.02);
     }
   };
 
   const handleZoomOut = () => {
     if (scale > 1) {
-      setScale(scale - 0.1);
+      setScale(scale - 0.02);
     }
   };
 
@@ -38,11 +38,18 @@ const EmployeeFlowDiagram2 = () => {
     <>
      <h1 className='text-black font-semibold  bg-gray-100  p-4'>{selectedData[0].title}</h1>  
     
-    <div className="relative bg-gray-100  min-h-screen w-full grid items-center justify-center" 
-       >
+    <div className="relative bg-gray-100  min-h-screen w-full grid items-center justify-center"  >
         
       {nodes.length > 0 ? (
+        <div
+        className="transform transition-transform duration-300"
+        style={{
+          transform: `scale(${scale})`, 
+          transformOrigin: '0 0', 
+        }}
+      >
         <DiagramRenderer nodes={nodes} scale={scale} />
+      </div>
       ) : (
         <div>No data available to render diagram</div>
       )}
