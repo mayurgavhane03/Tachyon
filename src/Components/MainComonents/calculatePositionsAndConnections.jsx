@@ -4,6 +4,7 @@ export const calculatePositionsAndConnections = (nodes) => {
   const levelHeight = 120;
 
   const rootNode = nodes.find(n => n.type === "user");
+  console.log("rootNode",rootNode)
   if (!rootNode) {
     console.error("Root node not found");
     return { nodePositions: {}, connections: [], diagramDimensions: { width: 0, height: 0 } };
@@ -28,8 +29,10 @@ export const calculatePositionsAndConnections = (nodes) => {
   Object.values(grouped).forEach((group, colIndex) => {
     group.forEach((node, rowIndex) => {
       const left = (colIndex + 1) * levelWidth;
+
       const top = totalHeight;
       positions[node.id] = { left, top };
+ 
       
       maxWidth = Math.max(maxWidth, left);
       

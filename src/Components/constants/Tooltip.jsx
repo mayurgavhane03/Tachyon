@@ -1,11 +1,15 @@
 import React from "react";
 
 const Tooltip = ({ details }) => {
-  const detailsWithoutBraces = JSON.stringify(details, null, 2).replace(/[{}]/g, "");
-
   return (
-    <div className="absolute z-10 p-2 bg-gray-700 text-white text-sm rounded shadow-lg">
-      <pre className="m-0">{detailsWithoutBraces}</pre>
+    <div className="absolute   p-4 w-80 bg-gray-200 rounded-lg h-auto w text-white text-sm   shadow-lg">
+      <ul className="m-0 p-0 list-none">
+        {Object.entries(details).map(([key, value]) => (
+          <li key={key} className="mb-1 text-black">
+            <strong>{key}:</strong> {String(value)}
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };

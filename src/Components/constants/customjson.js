@@ -36,10 +36,40 @@ export const customJson = [
                  "return": "id"
                },
                "correlation-id": "123456",
-               "next": "4",
+               "next": "11",
                "prev": "2",
                "id": "3"
              },
+              {
+                "type": "connecting",
+                "name": "Connecting",
+                "details": {
+                  "method": "createEmployee",
+                  "Parameters": "{name, dob, contact, address}",
+                  "return": "id"
+                },
+                "correlation-id": "123456",
+                "next": "12",
+                "prev": "3",
+                "id": "11"
+              },
+              
+             {
+                "type": "function2",
+                "name": "Emp Created",
+                "details": {
+                  "method": "createEmployee",
+                  "Parameters": "{name, dob, contact, address}",
+                  "return": "id"
+                },
+                "correlation-id": "123456",
+                "next": "4",
+                "prev": "11",
+                "id": "12"
+              },
+
+
+
              {
                "type": "database",
                "name": "DynamoDB",
@@ -50,7 +80,7 @@ export const customJson = [
                  "table": "employees"
                },
                "correlation-id": "123456",
-               "prev": "3",
+               "prev": "11",
                "id": "4"
              },
              {
@@ -132,7 +162,68 @@ export const customJson = [
                "correlation-id": "214365",
                "prev": "9",
                "id": "10"
-             }, 
+             },
+             
+             {
+                "type": "api",
+                "name": "DEL/emp",
+                "details": {
+                  "type": "NOSQL",
+                  "Provider": "AWS",
+                  "endpoint": "https://aws.com/dynamodb/a72b898146ca576",
+                  "table": "employees"
+                },
+                "correlation-id": "214365",
+                "prev": "1",
+                "id": "15",
+                "next": "16"
+              },
+              {
+                "type": "deleted",
+                "name": "Deleted",
+                "details": {
+                  "type": "NOSQL",
+                  "Provider": "AWS",
+                  "endpoint": "https://aws.com/dynamodb/a72b898146ca576",
+                  "table": "employees"
+                },
+                "correlation-id": "214365",
+                "prev": "15",
+                "id": "16"
+              },
+
+
+
+
+              {
+                "type": "api",
+                "name": "DEL/User   ",
+                "details": {
+                  "type": "NOSQL",
+                  "Provider": "AWS",
+                  "endpoint": "https://aws.com/dynamodb/a72b898146ca576",
+                  "table": "employees"
+                },
+                "correlation-id": "214365",
+                "prev": "1",
+                "id": "17",
+                "next": "16"
+              },
+              {
+                "type": "deleted",
+                "name": "Del/emp",
+                "details": {
+                  "type": "NOSQL",
+                  "Provider": "AWS",
+                  "endpoint": "https://aws.com/dynamodb/a72b898146ca576",
+                  "table": "employees"
+                },
+                "correlation-id": "214365",
+                "prev": "15",
+                "id": "18"
+              },
+             
+             
        ]
     }
   ]

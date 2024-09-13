@@ -11,7 +11,7 @@ const DataOptions = ({ onDataChange }) => {
     onDataChange(selectedOption); 
   }
   return (
-    <div className="absolute top-[500px] right-10 items-start p-4 border border-blue-500 rounded-md">
+    <div className="absolute top-[400px] right-10 items-start p-4 border border-blue-500 rounded-md">
       <label className="flex items-center mb-2">
         <input
           type="radio"

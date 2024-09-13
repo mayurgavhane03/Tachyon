@@ -119,12 +119,13 @@ const EmployeeFlowDiagram = () => {
   };
 
   return (
-    <div className="relative bg-gray-100 min-h-screen w-full flex items-center justify-center">
+    <div className=" bg-gray-100 min-h-screen w-full flex items-center justify-center">
       <div 
         className="relative"
         style={{
           width: `${diagramDimensions.width}px`,
-          height: `${diagramDimensions.height}px`
+          height: `${diagramDimensions.height}px`,
+              transform: `scale(${scale})`
         }}
       >
         {Object.entries(nodePositions).map(([nodeId, position]) => (

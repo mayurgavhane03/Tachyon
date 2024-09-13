@@ -36,9 +36,11 @@ const EmployeeFlowDiagram2 = () => {
 
   return (
     <>
+     <h1 className='text-black font-semibold  bg-gray-100  p-4'>{selectedData[0].title}</h1>  
     
-    <div className="relative bg-gray-100 min-h-screen w-full grid items-center justify-center"    >
-         <h1 className='text-black font-semibold mb-10  p-4'>{selectedData[0].title}</h1>  
+    <div className="relative bg-gray-100  min-h-screen w-full grid items-center justify-center" 
+       >
+        
       {nodes.length > 0 ? (
         <DiagramRenderer nodes={nodes} scale={scale} />
       ) : (
