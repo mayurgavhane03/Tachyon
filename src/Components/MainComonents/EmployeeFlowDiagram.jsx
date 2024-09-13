@@ -4,6 +4,7 @@ import { jsondata2 } from '../constants/jsondata2';
 import DiagramRenderer from './DiagramRenderer';
 import DataOptions from '../DataOptions';
 import ZoomButtons from '../ZoomButtons';
+import { customJson } from '../constants/customjson';
 
 
 const EmployeeFlowDiagram2 = () => {
@@ -27,19 +28,17 @@ const EmployeeFlowDiagram2 = () => {
     } else if (option === "Test-data-2") {
       setSelectedData(jsondata2);
     } else if (option === "Custom") {
-      console.log("Custom data option selected");
-      // Handle custom data here
+      setSelectedData(customJson);
     }
   };
 
-  // Add a check for selectedData and its structure
   const nodes = selectedData && selectedData[0] ? selectedData[0].nodes : [];
 
   return (
-    <div className="relative bg-gray-100 min-h-screen w-full flex items-center justify-center"
-
-    >
-     
+    <>
+    
+    <div className="relative bg-gray-100 min-h-screen w-full grid items-center justify-center"    >
+         <h1 className='text-black font-semibold mb-10  p-4'>{selectedData[0].title}</h1>  
       {nodes.length > 0 ? (
         <DiagramRenderer nodes={nodes} scale={scale} />
       ) : (
@@ -49,6 +48,7 @@ const EmployeeFlowDiagram2 = () => {
           <ZoomButtons onZoomIn={handleZoomIn} onZoomOut={handleZoomOut} />
 
     </div>
+    </>
   );
 };
 

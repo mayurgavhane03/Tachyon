@@ -66,12 +66,13 @@ export const calculatePositionsAndConnections = (nodes) => {
   console.log("totalHeight",totalHeight )
 
   console.log("positions ",positions)
+  
   console.log("diaPosi",  { 
     width: maxWidth + levelWidth * 2,  // Add two more level widths for padding
     height: totalHeight
   } )
 
-  console.log(connections)
+  console.log("connections,",connections)
   return { 
     nodePositions: positions, 
     connections, 

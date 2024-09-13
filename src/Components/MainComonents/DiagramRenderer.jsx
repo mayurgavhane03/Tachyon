@@ -7,14 +7,13 @@ const DiagramRenderer = ({ nodes = [], scale }) => {
   const { nodePositions, connections, diagramDimensions } = useMemo(() => 
     calculatePositionsAndConnections(nodes), [nodes]);
 
-  console.log("nodePositions",nodePositions,diagramDimensions,connections )
-  if (nodes.length === 0) {
+   if (nodes.length === 0) {
     return <div></div>;
   }
 
   return (
     <div
-      className="relative"
+      className="relative justify-center ml-48 -mt-24  " 
       style={{
         width: `${diagramDimensions.width}px`,
         height: `${diagramDimensions.height}px`,
