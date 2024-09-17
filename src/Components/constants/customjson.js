@@ -67,9 +67,6 @@ export const customJson = [
                 "prev": "11",
                 "id": "12"
               },
-
-
-
              {
                "type": "database",
                "name": "DynamoDB",
@@ -80,7 +77,7 @@ export const customJson = [
                  "table": "employees"
                },
                "correlation-id": "123456",
-               "prev": "11",
+               "prev": "12",
                "id": "4"
              },
              {
@@ -163,7 +160,6 @@ export const customJson = [
                "prev": "9",
                "id": "10"
              },
-             
              {
                 "type": "api",
                 "name": "DEL/emp",
@@ -191,10 +187,6 @@ export const customJson = [
                 "prev": "15",
                 "id": "16"
               },
-
-
-
-
               {
                 "type": "api",
                 "name": "DEL/User   ",
@@ -207,7 +199,7 @@ export const customJson = [
                 "correlation-id": "214365",
                 "prev": "1",
                 "id": "17",
-                "next": "16"
+                "next": "18"
               },
               {
                 "type": "deleted",
@@ -219,11 +211,9 @@ export const customJson = [
                   "table": "employees"
                 },
                 "correlation-id": "214365",
-                "prev": "15",
+                "prev": "17",
                 "id": "18"
-              },
-             
-             
+              },  
        ]
     }
   ]

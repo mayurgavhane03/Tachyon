@@ -8,8 +8,14 @@ import { LuFunctionSquare } from "react-icons/lu";
 import { RiFunctionLine,RiBaseStationLine} from "react-icons/ri";
 import { AiFillDelete } from "react-icons/ai";
 
-const Node = ({ details }) => {
+const Node = ({ details, isOpen, handleToggle}) => {
   const [hover, setHover] = useState(false);
+  const [onClickk, setOnclick] = useState(false)
+  const [checkOtherOpen, setcheckOtherOPen]= useState(false);
+
+console.log(isOpen)
+
+console.log(onclick)
   const getIcon = (type) => {
     switch (type) {
       case "user":
@@ -36,16 +42,17 @@ const Node = ({ details }) => {
   return (
     <div
       className="flex  items-center justify-center relative"
-      onMouseEnter={() => setHover(true)}
-      onMouseLeave={() => setHover(false)}
+    
     >
-      <div className="flex flex-col items-center justify-center h-24 w-24 rounded-full shadow-lg bg-white border-2 border-gray-300 transition-all duration-300 hover:shadow-xl hover:scale-105">
+      <button onClick={handleToggle}>
+      <div className={`flex flex-col items-center justify-center h-24 w-24 rounded-full shadow-lg bg-white border-2 transition-all duration-300 hover:shadow-xl hover:scale-105 ${isOpen ? 'border-red-500'   :  'border-gray-300 '} ` }>
         <span className="text-3xl mb-1">{getIcon(details.type)}</span>
         <span className="font-semibold text-center text-xs px-1 truncate w-full text-gray-700">
           {details.name}
         </span>
       </div>
-      {hover && (
+      </button>
+      {isOpen && (
         <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 z-10">
           <Tooltip details={details.details} />
         </div>

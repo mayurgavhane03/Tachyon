@@ -1,29 +1,19 @@
-import React from 'react';
-import { calculateArrowProperties } from './calculatePositionsAndConnections';
-import { ArrowRight } from '../Arrow';
-
+import React from "react";
+import { Arrow } from "../Arrow";
 
 const ArrowWrapper = ({ connection, nodePositions }) => {
   const start = nodePositions[connection.from];
   const end = nodePositions[connection.to];
 
   if (!start || !end) return null;
-
-  const { length, angle } = calculateArrowProperties(start, end);
+ 
+  const startX = start.left + 125;
+  const startY = start.top + 30;
+  const endX = end.left + 25;
+  const endY = end.top + 30;
 
   return (
-    <div
-      className="absolute h-6 overflow-visible"
-      style={{
-        left: `${start.left + 85}px`,
-        top: `${start.top + 30}px`,
-        width: `${length - 100}px`,
-        transform: `rotate(${angle}deg)`,
-        transformOrigin: 'left center'
-      }}
-    >
-      <ArrowRight />
-    </div>
+    <Arrow  startX={startX} startY={startY} endX={endX} endY={endY}  />
   );
 };
 

@@ -71,7 +71,7 @@ export const calculatePositionsAndConnections = (nodes) => {
   console.log("positions ",positions)
   
   console.log("diaPosi",  { 
-    width: maxWidth + levelWidth * 2,  // Add two more level widths for padding
+    width: maxWidth + levelWidth,
     height: totalHeight
   } )
 
@@ -88,7 +88,7 @@ export const calculatePositionsAndConnections = (nodes) => {
 
 export const calculateArrowProperties = (start, end) => {
   const dx = end.left - start.left;
-  const dy = end.top - start.top;
+  const dy = end.top - start.top;   
   const length = Math.sqrt(dx * dx + dy * dy);
   const angle = Math.atan2(dy, dx) * (180 / Math.PI);
   return { length, angle };

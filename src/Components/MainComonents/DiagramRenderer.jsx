@@ -1,19 +1,26 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import { calculatePositionsAndConnections } from './calculatePositionsAndConnections';
 import NodeWrapper from './NodeWrapper';
 import ArrowWrapper from './ArrowWrapper';
 
 const DiagramRenderer = ({ nodes = [], scale }) => {
-  const { nodePositions, connections, diagramDimensions } = useMemo(() =>
-    calculatePositionsAndConnections(nodes), [nodes]);
+  const { nodePositions, connections, diagramDimensions } = useMemo(
+    () => calculatePositionsAndConnections(nodes), 
+    [nodes]
+  );
+  
+  const [activeNodeId, setActiveNodeId] = useState(null);
+
+  const handleToggle = (id) => {
+    setActiveNodeId((prevId) => (prevId === id ? null : id));
+  };
 
   if (nodes.length === 0) {
-    return <div></div>;
+    return <div>No nodes available</div>;
   }
 
-  // Calculate offset based on scale
-  const offsetX = (scale - 1) * 100; // Adjust multiplier as needed
-  const offsetY = (scale - 1) * 100; // Adjust multiplier as needed
+  const offsetX = (scale - 1) * 100;
+  const offsetY = (scale - 1) * 100;
 
   return (
     <div
@@ -26,10 +33,22 @@ const DiagramRenderer = ({ nodes = [], scale }) => {
       }}
     >
       {Object.entries(nodePositions).map(([nodeId, position]) => (
-        <NodeWrapper key={nodeId} nodeId={nodeId} position={position} nodes={nodes} />
+        <NodeWrapper
+          key={nodeId}
+          nodeId={nodeId}
+          position={position}
+          nodes={nodes}
+          handleToggle={handleToggle}
+          isOpen={activeNodeId === nodeId}
+        />
       ))}
+
       {connections.map((connection, index) => (
-        <ArrowWrapper key={index} connection={connection} nodePositions={nodePositions} />
+        <ArrowWrapper
+          key={index}
+          connection={connection}
+          nodePositions={nodePositions}
+        />
       ))}
     </div>
   );
