@@ -7,10 +7,11 @@ const ArrowWrapper = ({ connection, nodePositions }) => {
 
   if (!start || !end) return null;
  
-  const startX = start.left + 125;
-  const startY = start.top + 30;
-  const endX = end.left + 25;
-  const endY = end.top + 30;
+  const startX = start.left +68
+  const startY = start.top + 10;
+  const endX = end.left -33
+
+  const endY = end.top + 10;
 
   return (
     <Arrow  startX={startX} startY={startY} endX={endX} endY={endY}  />

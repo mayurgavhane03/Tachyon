@@ -9,8 +9,8 @@ const NodeWrapper = ({ nodeId, position, nodes, handleToggle, isOpen }) => {
   <div
     className="absolute"
     style={{
-      left: `${position.left+28 }px`,
-      top: `${position.top - 14}px`
+      left: `${position.left+90 }px`,
+      top: `${position.top +10}px`
     }}
   >
     <Node    details={nodes.find(n => n.id === nodeId)} isOpen={isOpen}   handleToggle={() => handleToggle(nodeId)}  />

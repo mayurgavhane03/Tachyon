@@ -16,8 +16,8 @@ export const Arrow = ({ startX, startY, endX, endY }) => {
     <svg
       className="absolute pointer-events-none"
       style={{
-        left: 0,
-        top: 0,
+        left: 120,
+        top: 50,
         width: "100%",
         height: "100%",
         overflow: "visible",

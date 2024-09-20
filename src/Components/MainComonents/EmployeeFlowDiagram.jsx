@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { jsondata1 } from '../constants/jsondata1';
 import { jsondata2 } from '../constants/jsondata2';
 import DiagramRenderer from './DiagramRenderer';
@@ -22,6 +22,10 @@ const EmployeeFlowDiagram2 = () => {
     }
   };
 
+  useEffect(()=>{
+    setScale(1)
+  },[selectedData])
+  
   const handleDataChange = (option) => {
     if (option === "Test-data-1") {
       setSelectedData(jsondata1);

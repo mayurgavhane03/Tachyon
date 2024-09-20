@@ -8,7 +8,7 @@ const DiagramRenderer = ({ nodes = [], scale }) => {
     () => calculatePositionsAndConnections(nodes), 
     [nodes]
   );
-  
+
   const [activeNodeId, setActiveNodeId] = useState(null);
 
   const handleToggle = (id) => {
@@ -19,17 +19,21 @@ const DiagramRenderer = ({ nodes = [], scale }) => {
     return <div>No nodes available</div>;
   }
 
-  const offsetX = (scale - 1) * 100;
-  const offsetY = (scale - 1) * 100;
+  const centerX = diagramDimensions.width / 2;
+  const centerY = diagramDimensions.height / 2;
+  const offsetX = (1 - scale) * centerX;
+  const offsetY = (1 - scale) * centerY;
 
   return (
     <div
-      className="relative justify-center ml-48 -mt-24"
+      className="relative w-full h-full flex justify-center items-center overflow-x-hidden overflow-y-hidden "
       style={{
+        maxWidth: '100%',
+        maxHeight: '100%',
         width: `${diagramDimensions.width}px`,
         height: `${diagramDimensions.height}px`,
-        transform: `scale(${scale}) translate(${offsetX}px, ${offsetY}px)`,
-        transformOrigin: 'top left',
+        transform: `translate(${offsetX}px, ${offsetY}px) scale(${scale})`,
+        transformOrigin: 'center center',
       }}
     >
       {Object.entries(nodePositions).map(([nodeId, position]) => (
